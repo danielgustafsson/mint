@@ -64,6 +64,7 @@
 #ifndef _MINTUNIT_H
 #define _MINTUNIT_H
 
+#include <stdio.h>
 #include <sys/time.h>
 
 unsigned int tests_run = 0;
