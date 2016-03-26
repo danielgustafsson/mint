@@ -64,6 +64,8 @@
 #ifndef _MINTUNIT_H
 #define _MINTUNIT_H
 
+#include <sys/time.h>
+
 unsigned int tests_run = 0;
 unsigned int units_run = 0;
 
@@ -74,8 +76,10 @@ unsigned int units_run = 0;
 /* mt_is_null - Specifically test for NULL */
 #define mt_is_null(message, test) do { units_run++; if ((test) != NULL) return message; } while (0)
 /* mt_run_test - Run a test suite */
-#define mt_run_test(message, test) do { char *result = test(); tests_run++; \
-	printf("%sok %d - %s %s%s\n", (result ? "not " : ""), tests_run, message, result ? "# " : "", result ?: ""); \
+#define mt_run_test(message, test) do { struct timeval stop, start; uint64_t msec = 0; char *result = NULL; \
+	gettimeofday(&start, NULL); result = test(); tests_run++; \
+	gettimeofday(&stop, NULL); msec = ((stop.tv_sec - start.tv_sec) * 1000.0f + (stop.tv_usec - start.tv_usec) / 1000.0f); \
+	printf("%sok %d - %s (%llu ms) %s%s\n", (result ? "not " : ""), tests_run, message, msec, result ? "# " : "", result ?: ""); \
 	if (result) return result; } while (0)
 
 #endif /* _MINTUNIT_H */
