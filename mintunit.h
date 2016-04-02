@@ -71,7 +71,7 @@ unsigned int tests_run = 0;
 unsigned int units_run = 0;
 
 /* mt_init - Initalize with the number of suites */
-#define mt_init(tests) do { printf("1..%d\n", tests); } while (0)
+#define mt_init(tests) do { tests_run = units_run = 0; printf("1..%d\n", tests); } while (0)
 /* mt_assert - General purpose assertion */
 #define mt_assert(message, test) do { units_run++; if (!(test)) return message; } while (0)
 /* mt_is_null - Specifically test for NULL */
