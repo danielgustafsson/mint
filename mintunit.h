@@ -39,7 +39,7 @@
  *		return test_result == NULL ? 0 : 1;
  *	}
  *
- * Portions Copyright (c) 2016 Daniel Gustafsson <daniel@yesql.se>
+ * Portions Copyright (c) 2016-2017 Daniel Gustafsson <daniel@yesql.se>
  * Portions Copyright (c) 2002 Jera Design
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
