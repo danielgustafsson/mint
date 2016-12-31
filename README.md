@@ -9,7 +9,9 @@ published in [Jera Tech Notes](http://www.jera.com/techinfo/jtns/jtn002.html).
 ## Usage
 
 To use Mint Unit, include `mintunit.h` header file in your testing application
-and start writing tests. Sample usage of mint unit can be seen below:
+and start writing tests. Suites should return `NULL` on successful test. The
+test suites are executed using `mt_run_test(<name>)`. Sample usage of mint unit
+can be seen below:
 
 ```C
 #include <stdio.h>
@@ -45,4 +47,5 @@ main(int argc, char **argv)
 
 ## License
 
-Mint Unit is licensed under the MIT license.
+Mint Unit is licensed under the MIT license, see header in `mintunit.h` for
+full license text.
